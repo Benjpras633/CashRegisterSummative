@@ -57,21 +57,19 @@ namespace CashRegisterSummative
                 subtotalOP.Text = costofOrder.ToString("C");
                 taxOP.Text = taxCost.ToString("C");
                 totalOP.Text = costofOrderTotal.ToString("C");
-
             }
             catch
             {
                 messageLabel.Text = "Please enter a amount.  ";
 
                 return;
-            }
-            
+            }        
         }
 
         private void CalculatechangeButton_Click(object sender, EventArgs e)
         {
             try
-            {
+            {  //calcuations
                 numberofDays = Convert.ToInt16(daysInput.Text);
                 numberofWeeks = Convert.ToInt16(WeeksInput.Text);
                 numberofMonths = Convert.ToInt16(monthsInput.Text);
@@ -93,9 +91,7 @@ namespace CashRegisterSummative
             catch
             {
                 messageLabel.Text = "Please enter a amount";
-            }
-            
-                 
+            }               
         }
 
        
@@ -111,35 +107,39 @@ namespace CashRegisterSummative
 
             cashregister.Play();
             g.FillRectangle(drawBrush, 400, 80, 350, 475);
-
+            //Titles
             g.DrawString(" Ben's Bed And Breakfast Inc.", drawfont, blackBrush, 400, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\nOrder Number  273", smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\nSeptember 28 , 2019", smallfont, blackBrush, 420, 100);
-
+            Thread.Sleep(200);
+            //Variables
             g.DrawString("\n\n\n\n\n\n\nDays        x" + numberofDays + "     @ " + DAYS.ToString("C") , smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\n\n\n\n\nWeeks      x" + numberofWeeks + "    @ " + WEEKS.ToString("C"), smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\n\n\n\n\n\nMonths    x" + numberofMonths + "   @ " + MONTHS.ToString("C"), smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\n\n\n\n\n\n\n\nSubtotal        " + costofOrder.ToString("C"), smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\n\n\n\n\n\n\n\n\nTax             "  + taxCost.ToString("C"), smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\n\n\n\n\n\n\n\n\n\nTotal           " + costofOrderTotal.ToString("C"), smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTendered        " + tendered.ToString("C"), smallfont, blackBrush, 420, 100);
+            Thread.Sleep(200);
             g.DrawString("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChange          " + change.ToString("C"), smallfont, blackBrush, 420, 100);
-
-
-
-
-
-
-
-
-
+            Thread.Sleep(200);
         }
 
         private void NeworderButton_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-
+            //resets receipt
             g.Clear(Color.White);
+
+            //resets price
             change = 0;
             pricedays = 0;
             priceweeks = 0;
@@ -165,13 +165,6 @@ namespace CashRegisterSummative
 
             changeOutput.Text = Convert.ToString("$0.00");
             tenderedOutput.Text = "";
-
-
-
-
-
-
-
         }
     }
     }
